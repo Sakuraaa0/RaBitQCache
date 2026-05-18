@@ -1,0 +1,21 @@
+{
+    "compressor": {
+        "type": "none"
+    },
+    "selector": {
+        "type": "ds",
+        "token_budget": 8192,
+        "r": 32,
+        "quant_bit": 2,
+        "selected_channel": "q",
+        "config_path": "../third_party/DoubleSparse/config/meta-llama/Llama-3.1-8B-Instruct.json"
+    },
+    "weight_estimator": {
+        "type": "none"
+    },
+    "weight_pruner": {
+        "type": "none"
+    },
+    "skip_first_two_layers": true,
+    "use_estimated_weights_in_attn": false
+}

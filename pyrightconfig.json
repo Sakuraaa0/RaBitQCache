@@ -1,0 +1,17 @@
+{
+    "include": ["."],
+    "extraPaths": [
+        ".",
+        "./third_party/DoubleSparse"
+    ],
+    "pythonVersion": "3.10",
+    "pythonPlatform": "Linux",
+    "reportPossiblyUnboundVariable": false,
+    "reportAttributeAccessIssue": false,
+    "reportOptionalMemberAccess": false,
+    "reportArgumentType": false,
+    "reportOperatorIssue": false,
+    "reportInvalidTypeForm": false,
+    "reportGeneralTypeIssues": false
+
+}

@@ -1,0 +1,20 @@
+{
+    "compressor": {
+        "type": "snap_kv",
+        "window_size": 64,
+        "max_capacity_prompt": 960,
+        "kernel_size": 5,
+        "pooling": "avgpool"
+    },
+    "selector": {
+        "type": "none"
+    },
+    "weight_estimator": {
+        "type": "none"
+    },
+    "weight_pruner": {
+        "type": "none"
+    },
+    "skip_first_two_layers": true,
+    "use_estimated_weights_in_attn": false
+}

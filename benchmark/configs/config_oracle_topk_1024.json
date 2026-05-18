@@ -1,0 +1,17 @@
+{
+    "compressor": {
+        "type": "none"
+    },
+    "selector": {
+        "type": "oracle_topk",
+        "token_budget": 1024
+    },
+    "weight_estimator": {
+        "type": "none"
+    },
+    "weight_pruner": {
+        "type": "none"
+    },
+    "skip_first_two_layers": true,
+    "use_estimated_weights_in_attn": false
+}

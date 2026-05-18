@@ -1,0 +1,16 @@
+{
+  "compressor": {
+    "type": "none"
+  },
+  "selector": {
+    "type": "none"
+  },
+  "weight_estimator": {
+    "type": "none"
+  },
+  "weight_pruner": {
+    "type": "none"
+  },
+  "use_estimated_weights_in_attn": false,
+  "skip_first_two_layers": false
+}

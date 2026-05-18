@@ -1,0 +1,19 @@
+{
+  "description": "RabitQ-based sparse attention configuration",
+  "compressor": {
+    "type": "none"
+  },
+  "selector": {
+    "type": "rabitq",
+    "quantize_interval": 128,
+    "top_p": 0.9
+  },
+  "weight_estimator": {
+    "type": "none"
+  },
+  "weight_pruner": {
+    "type": "none"
+  },
+  "use_estimated_weights_in_attn": false,
+  "skip_first_two_layers": true
+}

@@ -1,0 +1,19 @@
+{
+  "description": "RabitQ no-center ablation (centroids=0), top_p=0.75",
+  "compressor": {
+    "type": "none"
+  },
+  "selector": {
+    "type": "rabitq_no_center",
+    "quantize_interval": 128,
+    "top_p": 0.75
+  },
+  "weight_estimator": {
+    "type": "none"
+  },
+  "weight_pruner": {
+    "type": "none"
+  },
+  "use_estimated_weights_in_attn": false,
+  "skip_first_two_layers": true
+}
