@@ -1,4 +1,18 @@
-# [ICML'26] RaBitQCache: Rotated Binary Quantization for KVCache in Long Context LLM Inference
+<div align="center">
+
+<h1>
+    RaBitQCache: Rotated Binary Quantization for KVCache in Long Context LLM Inference
+    <br><br>
+    <b>ICML 2026</b>
+    <br><br>
+    <a href="https://arxiv.org/abs/2606.31519" target="_blank">
+      <img src="https://img.shields.io/badge/Paper%20ArXiv-RaBitQCache-b31b1b.svg" alt="Paper ArXiv: GRACE">
+    </a>
+  </h1>
+</div>
+
+
+
 
 ## Overview
 Long-context Large Language Model inference is severely bottlenecked by the massive Key-Value (KV) cache, yet existing sparse attention methods often suffer from static fixed-budget (Top-k) retrieval or rely on proxy scores that are computationally expensive and biased. To address these limitations, we propose RaBitQCache, a novel sparse attention framework that utilizes randomized rotated binary quantization and high-throughput binary-INT4 arithmetic to efficiently estimate attention weights. Our proxy score serves as an unbiased estimator with a proven error bound, enabling adaptive Top-p retrieval that dynamically adjusts the token budget based on actual attention sparsity. We further implement a hardware-aware system with asynchronous pipelining and lazy updates to mask overhead. Evaluations demonstrate that RaBitQCache significantly accelerates inference and reduces memory I/O while preserving generation quality compared to state-of-the-art baselines.
