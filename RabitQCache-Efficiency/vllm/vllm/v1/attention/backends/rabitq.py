@@ -1920,7 +1920,7 @@ class RabitQAttentionImpl(FlashInferImpl):
             # scores shape: [num_tokens, num_kv_heads, num_quantized]
             # Scale by 1/sqrt(head_size) before softmax (standard attention scaling)
             scaled_scores = scores / math.sqrt(self.head_size)
-            probs = torch.softmax(scores, dim=-1)
+            probs = torch.softmax(scaled_scores, dim=-1)
 
             # CUDA kernel: returns mask where probs > threshold
             # Directly return mask (bool tensor) - no need to convert to indices
