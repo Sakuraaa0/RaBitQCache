@@ -534,6 +534,16 @@ class RabitQAttentionImpl(FlashInferImpl):
     # Key: (process_id, thread_id) to isolate different LLM instances
     _worker_rabitq_states: dict[tuple[int, int], RabitQRuntimeState] = {}
 
+    @classmethod
+    def free_finished_request_states(cls, req_ids: set[str]) -> None:
+        """Release per-layer quantization buffers owned by finished requests."""
+        if not req_ids:
+            return
+        for runtime_state in cls._worker_rabitq_states.values():
+            for layer_state in runtime_state.layer_states.values():
+                for req_id in req_ids:
+                    layer_state.request_states.pop(req_id, None)
+
     def __init__(
         self,
         num_heads: int,

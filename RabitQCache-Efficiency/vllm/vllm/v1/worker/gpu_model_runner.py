@@ -499,6 +499,16 @@ class GPUModelRunner(LoRAModelRunnerMixin, KVConnectorModelRunnerMixin):
         The SamplingMetadata is updated and copied to the GPU if there is a
         new/resumed/paused/finished request in the batch.
         """
+        # RaBitQ owns additional per-layer tensors that are not part of the
+        # normal request/KV-block maps. Release them at the same lifecycle
+        # boundary; otherwise every completed request permanently retains its
+        # rotated/quantized metadata and repeated inference eventually OOMs.
+        if (scheduler_output.finished_req_ids
+                and self.vllm_config.cache_config.enable_rabitq):
+            from vllm.v1.attention.backends.rabitq import RabitQAttentionImpl
+            RabitQAttentionImpl.free_finished_request_states(
+                scheduler_output.finished_req_ids)
+
         # Remove finished requests from the cached states.
         for req_id in scheduler_output.finished_req_ids:
             self.requests.pop(req_id, None)
